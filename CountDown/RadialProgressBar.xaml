@@ -1,0 +1,20 @@
+﻿<UserControl x:Class="CountDown.RadialProgressBar"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing"
+             xmlns:local="clr-namespace:CountDown"
+             x:Name="_this"            
+             mc:Ignorable="d" Height="300" d:DesignWidth="300">
+
+  <UserControl.Resources>
+    <local:PercentToAngle x:Key="percentToAngle"/>
+  </UserControl.Resources>
+  
+  <Grid>
+    <Ellipse x:Name="Background" Fill="{Binding ElementName=_this, Path=BackgroundBrush}" Margin="0" Stroke="DimGray"/>
+    <ed:Arc x:Name="Indicator" ArcThickness="100" ArcThicknessUnit="Pixel" StartAngle="{Binding ElementName=_this, Path=StartAngle}" EndAngle="{Binding ElementName=_this, Path=EndAngle}" Fill="{Binding ElementName=_this, Path=IndicatorBrush}" Stretch="None"/>
+    <Ellipse x:Name="Border" Fill="{Binding ElementName=_this, Path=ProgressBorderBrush}" Margin="100" Stroke="DimGray"/>
+  </Grid>
+</UserControl>

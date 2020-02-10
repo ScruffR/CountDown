@@ -1,0 +1,35 @@
+﻿<Window x:Class="CountDown.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CountDown"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="700" Width="700" AllowsTransparency="True" WindowStyle="None" WindowStartupLocation="Manual" Topmost="True"
+        MouseDown="Window_MouseDown" Closing="Window_Closing" Loaded="Window_Loaded" PreviewLostKeyboardFocus="Window_PreviewLostKeyboardFocus">
+ 
+  <Window.ContextMenu>
+    <ContextMenu>
+      <MenuItem x:Name="mnuReset" Header="_Reset" IsEnabled="True" Click="mnuReset_Click"/>
+      <MenuItem x:Name="mnuClose" Header="_Close" IsEnabled="True" Click="mnuClose_Click"/>
+    </ContextMenu>
+  </Window.ContextMenu>
+
+  <Window.Background>
+    <SolidColorBrush Opacity="0.0" Color="White"/>
+  </Window.Background>
+
+  <Grid>
+    <local:RadialProgressBar x:Name="minutes" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0" Width="700" Height="700" IndicatorBrush="Green" EndAngle="270" StartAngle="190">
+      <local:RadialProgressBar.BackgroundBrush>
+        <RadialGradientBrush>
+          <GradientStop Color="White" Offset="0.1"/>
+          <GradientStop Color="#02000000" Offset="1"/>
+        </RadialGradientBrush>
+      </local:RadialProgressBar.BackgroundBrush>
+      
+    </local:RadialProgressBar>
+    <local:RadialProgressBar x:Name="seconds" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0" Width="500" Height="500" IndicatorBrush="LimeGreen" EndAngle="360" StartAngle="100" ProgressBorderBrush="DimGray"/>
+    <TextBlock x:Name="txtTime" HorizontalAlignment="Center"  VerticalAlignment="Center" TextAlignment="Center" Margin="0" FontSize="48" Foreground="LimeGreen" Text="00:00:00" FontWeight="Bold" FontFamily="Rockwell Extra Bold"/>
+  </Grid>
+</Window>
