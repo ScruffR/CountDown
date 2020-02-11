@@ -20,16 +20,16 @@
   </Window.Background>
 
   <Grid>
-    <local:RadialProgressBar x:Name="minutes" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0" Width="700" Height="700" IndicatorBrush="Green" EndAngle="270" StartAngle="190">
+    <local:RadialProgressBar x:Name="minutes" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0" Width="650" Height="650" IndicatorBrush="Green" EndAngle="270" StartAngle="190">
       <local:RadialProgressBar.BackgroundBrush>
         <RadialGradientBrush>
-          <GradientStop Color="White" Offset="0.1"/>
-          <GradientStop Color="#02000000" Offset="1"/>
+          <GradientStop Color="#BF7F7F7F" Offset="0.3"/>
+          <GradientStop Color="#02000000" Offset="0.9"/>
         </RadialGradientBrush>
       </local:RadialProgressBar.BackgroundBrush>
       
     </local:RadialProgressBar>
-    <local:RadialProgressBar x:Name="seconds" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0" Width="500" Height="500" IndicatorBrush="LimeGreen" EndAngle="360" StartAngle="100" ProgressBorderBrush="DimGray"/>
+    <local:RadialProgressBar x:Name="seconds" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0" Width="450" Height="450" IndicatorBrush="LimeGreen" EndAngle="360" StartAngle="100" ProgressBorderBrush="Transparent"/>
     <TextBlock x:Name="txtTime" HorizontalAlignment="Center"  VerticalAlignment="Center" TextAlignment="Center" Margin="0" FontSize="48" Foreground="LimeGreen" Text="00:00:00" FontWeight="Bold" FontFamily="Rockwell Extra Bold"/>
   </Grid>
 </Window>

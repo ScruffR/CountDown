@@ -1,14 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
 
-
 // ToDo:
-// * set target time via command line args
-//     when not provided next quarter hour
-//     optional: schedules for start times per weekday
-// * optional: blink when over due
 
 namespace CountDown
 {
@@ -18,17 +14,27 @@ namespace CountDown
   public partial class MainWindow : Window
   {
     //PerformanceCounter perfCPU = new PerformanceCounter("Processor Information", "% Processor Time", "_Total");
+    Dictionary<string, string> arguments = new Dictionary<string, string>();
     System.Windows.Threading.DispatcherTimer timer = new System.Windows.Threading.DispatcherTimer();
     private DateTime targetTime;
+    private int   blinkCount = -1;
+    private Brush radial = new RadialGradientBrush(Colors.Red, Colors.Orange);
+    private Brush nextBrush;
 
     public MainWindow()
     {
       InitializeComponent();
 
+      string[] args = Environment.GetCommandLineArgs();
+      for (int index = 1; index < args.Length; index += 2)
+      {
+        arguments.Add(args[index], args[index + 1]);
+      }
+
       mnuReset_Click(null, null);
 
       timer.Tick += new EventHandler(Timer_Tick);
-      timer.Interval = new TimeSpan(0, 0, 0, 0, 100);
+      timer.Interval = new TimeSpan(0, 0, 0, 0, Properties.Settings.Default.UpdateInterval);
       timer.Start();
     }
 
@@ -37,10 +43,27 @@ namespace CountDown
       TimeSpan remaining = targetTime.Subtract(DateTime.Now);
       if (DateTime.Now >= targetTime)
       {
+        minutes.StartAngle = 0;
+        minutes.EndAngle = 360;
         seconds.StartAngle = 0;
         seconds.EndAngle = 360;
-        seconds.IndicatorBrush = new RadialGradientBrush(Colors.Yellow, Colors.Red);
-        seconds.ProgressBorderBrush = new LinearGradientBrush(Colors.Yellow, Colors.Red, DateTime.Now.Millisecond * 3.6);
+
+        switch (blinkCount++)
+        {
+          case 0:
+            seconds.ProgressBorderBrush = nextBrush;
+            break;
+          case 1:
+            seconds.IndicatorBrush = seconds.ProgressBorderBrush;
+            break;
+          case 2:
+            minutes.IndicatorBrush = seconds.IndicatorBrush;
+            break;
+          default:
+            nextBrush = (nextBrush == Brushes.Red) ? radial : Brushes.Red;
+            blinkCount = 0;
+            break;
+        }
       }
       else if (remaining.TotalSeconds <= 60)
       {
@@ -48,8 +71,8 @@ namespace CountDown
         minutes.EndAngle = 360;
         seconds.StartAngle = 0;
         seconds.EndAngle = DateTime.Now.Second * 6;
-        minutes.IndicatorBrush = Brushes.Red;
-        seconds.IndicatorBrush = new LinearGradientBrush(Colors.Red, Colors.Yellow, 0);
+        minutes.IndicatorBrush = 
+        seconds.IndicatorBrush = new SolidColorBrush(Color.FromRgb(255, (byte)(240 - DateTime.Now.Second * 4), 0));
         txtTime.Foreground = Brushes.Orange;
       }
       else
@@ -70,13 +93,16 @@ namespace CountDown
 
     private void mnuReset_Click(object sender, RoutedEventArgs e)
     {
-      targetTime = DateTime.Now;
-      //targetTime = targetTime.Subtract(new TimeSpan(0, 0, targetTime.Minute % 15, targetTime.Second, targetTime.Millisecond)).AddMinutes(15);
-      targetTime = targetTime.Subtract(new TimeSpan(0, 0, 0, targetTime.Second, targetTime.Millisecond)).AddMinutes(3);
+      string dt;
+      if (!(arguments.TryGetValue(DateTime.Now.ToString("dddd"), out dt) && DateTime.TryParse(dt, out targetTime)))  
+      {
+        targetTime = DateTime.Now;
+        targetTime = targetTime.Subtract(new TimeSpan(0, 0, targetTime.Minute % 15, targetTime.Second, targetTime.Millisecond)).AddMinutes(15);
+      }
 
       minutes.IndicatorBrush = Brushes.DarkGreen;
       seconds.IndicatorBrush = Brushes.Lime;
-      seconds.ProgressBorderBrush = Brushes.DimGray;
+      seconds.ProgressBorderBrush = Brushes.Transparent;
       txtTime.Foreground = Brushes.Lime;
     }
 
