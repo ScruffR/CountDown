@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CountDown"
         mc:Ignorable="d"
-        Title="MainWindow" Height="700" Width="700" AllowsTransparency="True" WindowStyle="None" WindowStartupLocation="Manual" Topmost="True"
+        Title="MainWindow" Height="700" Width="700" AllowsTransparency="True" WindowStyle="None" WindowStartupLocation="Manual" Topmost="True" ResizeMode="NoResize"
         MouseDown="Window_MouseDown" Closing="Window_Closing" Loaded="Window_Loaded" PreviewLostKeyboardFocus="Window_PreviewLostKeyboardFocus">
  
   <Window.ContextMenu>
@@ -20,7 +20,7 @@
   </Window.Background>
 
   <Grid>
-    <local:RadialProgressBar x:Name="minutes" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0" Width="650" Height="650" IndicatorBrush="Green" EndAngle="270" StartAngle="190">
+    <local:RadialProgressBar x:Name="minutes" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0" Width="600" Height="600" IndicatorBrush="Green" EndAngle="270" StartAngle="190">
       <local:RadialProgressBar.BackgroundBrush>
         <RadialGradientBrush>
           <GradientStop Color="#BF7F7F7F" Offset="0.3"/>
@@ -29,7 +29,7 @@
       </local:RadialProgressBar.BackgroundBrush>
       
     </local:RadialProgressBar>
-    <local:RadialProgressBar x:Name="seconds" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0" Width="450" Height="450" IndicatorBrush="LimeGreen" EndAngle="360" StartAngle="100" ProgressBorderBrush="Transparent"/>
-    <TextBlock x:Name="txtTime" HorizontalAlignment="Center"  VerticalAlignment="Center" TextAlignment="Center" Margin="0" FontSize="48" Foreground="LimeGreen" Text="00:00:00" FontWeight="Bold" FontFamily="Rockwell Extra Bold"/>
+    <local:RadialProgressBar x:Name="seconds" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0" Width="400" Height="400" IndicatorBrush="LimeGreen" EndAngle="360" StartAngle="100" ProgressBorderBrush="Transparent"/>
+    <TextBlock x:Name="txtTime" HorizontalAlignment="Center"  VerticalAlignment="Center" TextAlignment="Center" Margin="0" FontSize="40" Foreground="LimeGreen" Text="00:00:00" FontWeight="Bold" FontFamily="Rockwell Extra Bold"/>
   </Grid>
 </Window>

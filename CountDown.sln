@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.29728.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CountDown", "CountDown\CountDown.csproj", "{612C425A-906A-4A96-9EDF-F74521878D41}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SetupCountDown", "SetupCountDown\SetupCountDown.vdproj", "{1419989D-F3BD-4C01-8E50-17F2F94A45F1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,8 @@ Global
 		{612C425A-906A-4A96-9EDF-F74521878D41}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{612C425A-906A-4A96-9EDF-F74521878D41}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{612C425A-906A-4A96-9EDF-F74521878D41}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1419989D-F3BD-4C01-8E50-17F2F94A45F1}.Debug|Any CPU.ActiveCfg = Debug
+		{1419989D-F3BD-4C01-8E50-17F2F94A45F1}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

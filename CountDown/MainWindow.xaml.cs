@@ -100,7 +100,7 @@ namespace CountDown
         targetTime = targetTime.Subtract(new TimeSpan(0, 0, targetTime.Minute % 15, targetTime.Second, targetTime.Millisecond)).AddMinutes(15);
       }
 
-      minutes.IndicatorBrush = Brushes.DarkGreen;
+      minutes.IndicatorBrush = Brushes.Green;
       seconds.IndicatorBrush = Brushes.Lime;
       seconds.ProgressBorderBrush = Brushes.Transparent;
       txtTime.Foreground = Brushes.Lime;

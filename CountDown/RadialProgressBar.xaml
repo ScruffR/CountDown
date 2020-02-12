@@ -9,7 +9,7 @@
              mc:Ignorable="d" Height="300" d:DesignWidth="300">
 
   <Grid>
-    <Ellipse x:Name="Background" Fill="{Binding ElementName=_this, Path=BackgroundBrush}" Margin="0" Stroke="Transparent"/>
+    <Ellipse x:Name="Outline" Fill="{Binding ElementName=_this, Path=BackgroundBrush}" Margin="0" Stroke="Transparent"/>
     <ed:Arc x:Name="Indicator" ArcThickness="100" ArcThicknessUnit="Pixel" StartAngle="{Binding ElementName=_this, Path=StartAngle}" EndAngle="{Binding ElementName=_this, Path=EndAngle}" Fill="{Binding ElementName=_this, Path=IndicatorBrush}" Stretch="None"/>
     <Ellipse x:Name="Border" Fill="{Binding ElementName=_this, Path=ProgressBorderBrush}" Margin="100" Stroke="Transparent"/>
   </Grid>
