@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.IO;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
@@ -109,6 +111,12 @@ namespace CountDown
     private void mnuClose_Click(object sender, RoutedEventArgs e)
     {
       this.Close();
+    }
+
+    private void mnuSettings_Click(object sender, RoutedEventArgs e)
+    {
+      //MessageBox.Show(Path.GetDirectoryName(ConfigurationManager.OpenExeConfiguration(System.Configuration.ConfigurationUserLevel.PerUserRoaming).FilePath));
+      System.Diagnostics.Process.Start("notepad.exe", ConfigurationManager.OpenExeConfiguration(System.Configuration.ConfigurationUserLevel.PerUserRoamingAndLocal).FilePath); 
     }
 
     private void Window_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)

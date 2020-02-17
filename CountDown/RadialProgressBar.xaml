@@ -6,11 +6,11 @@
              xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing"
              xmlns:local="clr-namespace:CountDown"
              x:Name="_this"            
-             mc:Ignorable="d" Height="300" d:DesignWidth="300">
+             mc:Ignorable="d" Height="300" >
 
-  <Grid>
-    <Ellipse x:Name="Outline" Fill="{Binding ElementName=_this, Path=BackgroundBrush}" Margin="0" Stroke="Transparent"/>
-    <ed:Arc x:Name="Indicator" ArcThickness="100" ArcThicknessUnit="Pixel" StartAngle="{Binding ElementName=_this, Path=StartAngle}" EndAngle="{Binding ElementName=_this, Path=EndAngle}" Fill="{Binding ElementName=_this, Path=IndicatorBrush}" Stretch="None"/>
-    <Ellipse x:Name="Border" Fill="{Binding ElementName=_this, Path=ProgressBorderBrush}" Margin="100" Stroke="Transparent"/>
+  <Grid Width="{Binding ElementName=_this, Path=Height}">
+    <Ellipse x:Name="Outline" Fill="{Binding ElementName=_this, Path=BackgroundBrush}" Margin="0" Stroke="{Binding ElementName=_this, Path=Stroke}"/>
+    <ed:Arc x:Name="Indicator" ArcThickness="{Binding ElementName=_this, Path=ActualHeight, Converter={local:PercentageConverter}, ConverterParameter='16.7'}" ArcThicknessUnit="Pixel" StartAngle="{Binding ElementName=_this, Path=StartAngle}" EndAngle="{Binding ElementName=_this, Path=EndAngle}" Fill="{Binding ElementName=_this, Path=IndicatorBrush}" Stretch="None"/>
+    <Ellipse x:Name="Border" Fill="{Binding ElementName=_this, Path=ProgressBorderBrush}" Margin="{Binding ElementName=_this, Path=ActualHeight, Converter={local:PercentageConverter}, ConverterParameter='16.7'}"  Stroke="{Binding ElementName=_this, Path=Stroke}"/>
   </Grid>
 </UserControl>

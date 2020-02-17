@@ -136,6 +136,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.6.1"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.6.1 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.6.1"
+                    }
+                }
             }
         }
     }
@@ -378,7 +386,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:CountDown"
         "ProductCode" = "8:{4E3C5C97-5F5E-43D8-9806-561446B143A8}"
-        "PackageCode" = "8:{F27AEED4-05C6-4818-8D87-C5D95D6311BF}"
+        "PackageCode" = "8:{CEEB4A7B-3AD7-4723-BF68-6E1C4CD37447}"
         "UpgradeCode" = "8:{3A53B3E0-7882-4786-A0EE-6E127C17A6C5}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -395,7 +403,7 @@
         "Keywords" = "8:"
         "ARPCOMMENTS" = "8:"
         "ARPURLINFOABOUT" = "8:https://github.com/scruffr/CountDown.git"
-        "ARPPRODUCTICON" = "8:"
+        "ARPPRODUCTICON" = "8:_19D58240FB844B84B14A9175865EBF2F"
         "ARPIconIndex" = "3:0"
         "SearchPath" = "8:"
         "UseSystemSearchPath" = "11:TRUE"
@@ -913,7 +921,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_C39225FDEB9E4F32A58B309F1F4D493D"
             {
-            "SourcePath" = "8:..\\CountDown\\obj\\Release\\CountDown.exe"
+            "SourcePath" = "8:..\\CountDown\\obj\\Debug\\CountDown.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_4E18AA5B1A004F69A336A764239F575E"
