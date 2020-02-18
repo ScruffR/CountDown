@@ -49,6 +49,7 @@ namespace CountDown
         minutes.EndAngle = 360;
         seconds.StartAngle = 0;
         seconds.EndAngle = 360;
+        txtTime.Foreground = Brushes.Orange;
 
         switch (blinkCount++)
         {
@@ -71,16 +72,16 @@ namespace CountDown
       {
         minutes.StartAngle = 0;
         minutes.EndAngle = 360;
-        seconds.StartAngle = 0;
-        seconds.EndAngle = DateTime.Now.Second * 6;
+        seconds.StartAngle = targetTime.Second * 6;
+        seconds.EndAngle = (targetTime.Second + (60 - (int)remaining.TotalSeconds)) * 6;
         minutes.IndicatorBrush = 
-        seconds.IndicatorBrush = new SolidColorBrush(Color.FromRgb(255, (byte)(240 - DateTime.Now.Second * 4), 0));
+        seconds.IndicatorBrush = new SolidColorBrush(Color.FromRgb(255, (byte)(remaining.TotalSeconds * 4), 0));
         txtTime.Foreground = Brushes.Orange;
       }
       else
       {
-        minutes.StartAngle = DateTime.Now.Minute * 6;
-        minutes.EndAngle = targetTime.Minute * 6;
+        minutes.StartAngle = DateTime.Now.Minute * 6 + DateTime.Now.Second / 10;
+        minutes.EndAngle = targetTime.Minute * 6 + targetTime.Second / 10;
         seconds.StartAngle = DateTime.Now.Second * 6 - 2;
         seconds.EndAngle = DateTime.Now.Second * 6 + 2;
         if (remaining.TotalMinutes < 2)
